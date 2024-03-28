@@ -4,19 +4,19 @@ import { useParams } from "react-router-dom";
 import Submit from "@components/Submit";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-
 function ReplyNew(){
   const { _id } = useParams();
   const axios = useCustomAxios();
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-
-  const queryClient = useQueryClient;
+  const queryClient = useQueryClient();
   const addReply = useMutation({
-    mutationFn : (formData) => axios.post(`/posts/${ _id }/replies`, formData),
-    onSuccess(){ // queryFn이 성공을 (2xx 응답상태 코드) 응답 받을 경우 호출되는 콜백 함수
-      queryClient.invalidateQueries(['posts', _id, 'replies'])
+    mutationFn: (formData) => axios.post(`/posts/${ _id }/replies`, formData),
+    onSuccess(){ // queryFn이 성공을(2xx 응답 상태 코드) 응답 받을 경우 호출되는 콜백 합수
+      // 기존 캐시 무효화
+      queryClient.invalidateQueries(['posts', _id, 'replies']);
+      
       reset();
     }
   });
