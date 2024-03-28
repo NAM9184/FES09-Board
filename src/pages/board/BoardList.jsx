@@ -64,6 +64,7 @@ function BoardList(){
             <col className="w-[60%] sm:w-[30%]" />
             <col className="w-[30%] sm:w-[15%]" />
             <col className="w-0 sm:w-[10%]" />
+            <col className="w-0 sm:w-[10%]" />
             <col className="w-0 sm:w-[25%]" />
           </colgroup>
           <thead>
