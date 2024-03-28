@@ -1,4 +1,5 @@
 import Layout from "@components/layout";
+import EnvCheck from "@pages/EnvCheck";
 import ErrorPage from "@pages/ErrorPage";
 import BoardDetail from "@pages/board/BoardDetail";
 import BoardList from "@pages/board/BoardList";
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/users/signup",
         element: < SignUp/>
+      },
+      {
+        path: "envcheck",
+        element: < EnvCheck/>
       }
     ]
   },
